@@ -1,17 +1,17 @@
-$(() => {
-    const amenityIds = {};
+#!/usr/bin/node
+$(document).ready(function () {
+  const amenityIds = {};
 
-    $(':checkbox').change(() => {
-        if (this.checked) {
-            amenityIds[$(this).data('id')] = $(this).data('name');
-        } else {
-            delete amenityIds[$(this).data('id')];
-        }
+  $('input[type=checkbox]').change(function () {
+    const amenityId = $(this).data('id');
+    const amenityName = $(this).data('name');
 
-        if ($.isEmptyObject(amenityDict)) {
-            $('.amenities h4').html('&nbsp');
-        } else {
-            $('.amenities h4').text(Object.values(amenityDict).join(', '));
-        }
-    });
+    if ($(this).prop('checked')) {
+      amenityIds[amenityId] = amenityName;
+    } else {
+      delete amenityIds[amenityId];
+    }
+
+    $('.amenities h4').text(Object.values(amenityIds).join(', '));
+  });
 });
