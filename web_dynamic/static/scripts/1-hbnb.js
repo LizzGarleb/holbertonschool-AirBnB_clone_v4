@@ -1,23 +1,17 @@
 $(() => {
-    const amenityIds = [];
+    const amenityIds = {};
 
-    $('input[type="checkbox"]').change(() => {
-        const amenityId = $(this).data('id');
-        const amenityName = $(this).data('name');
-
-        if ($(this).is(':checked')) {
-            amenityIds.push(amenityId);
+    $(':checkbox').change(() => {
+        if (this.checked) {
+            amenityIds[$(this).data('id')] = $(this).data('name');
         } else {
-            const index = amenityIds.indexOf(amenityId);
-            if (index > -1) {
-                amenityIds.splice(index, 1);
-            }
+            delete amenityIds[$(this).data('id')];
         }
 
-        if (amenityIds.length > 0) {
-            $('.Amenities h4').text(amenityIds.map(id => $(`input[data-id="${id}"]`).data('name')).join(', '));
+        if ($.isEmptyObject(amenityDict)) {
+            $('.amenities h4').html('&nbsp');
         } else {
-            $('.Amenities h4').text('None');
+            $('.amenities h4').text(Object.values(amenityDict).join(', '));
         }
     });
 });
