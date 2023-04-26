@@ -19,7 +19,7 @@ $(document).ready(function () {
 $(() => {
   $.ajax({
     type: 'GET',
-    url: 'http://0.0.0.0:6050/api/v1/status/',
+    url: 'http://0.0.0.0:5001/api/v1/status/',
     success: (data) => {
       if (data.status === 'OK') {
         $('div#api_status').addClass('available');
