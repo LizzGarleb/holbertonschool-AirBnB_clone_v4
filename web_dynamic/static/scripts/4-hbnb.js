@@ -7,9 +7,9 @@ function printPlace(obj) {
                 <div class="price_by_night">$${obj.price_by_night}</div>
             </div>
             <div class="information">
-                <div class="max_guest">${obj.max_guest}</div>
-                <div class="number_rooms">${obj.number_rooms}</div>
-                <div class="number_bathrooms">${obj.number_bathrooms}</div>
+              <div class="max_guest">${obj.max_guest} Guests</div>
+              <div class="number_rooms">${obj.number_rooms} Bedrooms</div>
+              <div class="number_bathrooms">${obj.number_bathrooms} Bathrooms</div>
             </div>
             <div class="description">
                 ${obj.description}
@@ -28,7 +28,7 @@ $(document).ready(function () {
       } else {
         delete amenityIds[amenityId];
       }
-      $('.amenities h4').text(Object.values(amenityIds).join(', '));
+      $('.amenityFilter h4').text(Object.values(amenityIds).join(', '));
     });
     $('button').click(function () {
         if (Object.keys(amenityIds) !== 0) {

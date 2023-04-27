@@ -67,6 +67,15 @@ button:hover {
 .popover::-webkit-scrollbar{
     width: 0px;
 }
+.amenityFilter {
+    width: 250px;
+    height: 45px;
+}
+.amenityFilter h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 .amenities .popover {
     padding: 10px 0;

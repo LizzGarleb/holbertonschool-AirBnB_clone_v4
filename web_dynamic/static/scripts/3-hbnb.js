@@ -49,9 +49,9 @@ $(() => {
 	                <div class="price_by_night">$${place.price_by_night}</div>
 	            </div>
                 <div class="information">
-                    <div class="max_guest">${place.max_guest}</div>
-                    <div class="number_rooms">${place.number_rooms}</div>
-                    <div class="number_bathrooms">${place.number_bathrooms}</div>
+                    <div class="max_guest">${place.max_guest}Guests</div>
+                    <div class="number_rooms">${place.number_rooms}Bedrooms</div>
+                    <div class="number_bathrooms">${place.number_bathrooms}Bathrooms</div>
                 </div>
                 <div class="description">
                     ${place.description}
