@@ -39,15 +39,13 @@ $(document).ready(function () {
                 contentType:"application/json; charset=utf-8",
                 data: JSON.stringify({}),
                 success: function(data, status) {
+                  data.sort((a, b) => a.name.localeCompare(b.name));
                 for (const place of data) {
                     $.ajax({
                         type: 'GET',
                         url: `http://0.0.0.0:5001/api/v1/places/${place.id}/amenities`,
                         success: (results) => {
                             let idArray = results.map(obj => obj.id);
-                            console.log('example')
-                            console.log(Object.keys(amenityIds))
-                            console.log(idArray)
                             if (Object.keys(amenityIds).every(value => idArray.includes(value))) {
                                 printPlace(place);
                             }
@@ -80,6 +78,7 @@ $(document).ready(function () {
           contentType:"application/json; charset=utf-8",
           data: JSON.stringify({}),
           success: function(data, status) {
+            data.sort((a, b) => a.name.localeCompare(b.name));
             for (const place of data) {
                 printPlace(place);
                 };
